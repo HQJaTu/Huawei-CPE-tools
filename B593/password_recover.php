@@ -246,8 +246,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 </form>
 
 <footer id="bottom_info">
-    Source code for this application is available at <a
-        href="http://blog.hqcodeshop.fi/B593/password_recover_source.tar.bz2">http://blog.hqcodeshop.fi/B593/password_recover_source.tar.bz2</a>.
+    For source code, see <a href="https://github.com/HQJaTu/Huawei-CPE-tools">https://github.com/HQJaTu/Huawei-CPE-tools</a>.
 </footer>
 </body>
 </html>
