@@ -1,0 +1,57 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8882559e3e3b81deaa9fc16aa9f00c2a",
+    "packages": [
+        {
+            "name": "phpaes/phpaes",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phillipsdata/phpaes.git",
+                "reference": "ac8bee16e70fb4dc937e9367e26aafb98a675ac1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phillipsdata/phpaes/zipball/ac8bee16e70fb4dc937e9367e26aafb98a675ac1",
+                "reference": "ac8bee16e70fb4dc937e9367e26aafb98a675ac1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0",
+                "squizlabs/php_codesniffer": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpAes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "AES cipher - FIPS 192 compliant",
+            "support": {
+                "issues": "https://github.com/phillipsdata/phpaes/issues",
+                "source": "https://github.com/phillipsdata/phpaes/tree/3.1.0"
+            },
+            "time": "2018-01-16T01:21:58+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

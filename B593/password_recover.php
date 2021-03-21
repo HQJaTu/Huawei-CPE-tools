@@ -6,9 +6,9 @@
  * Date: 21.3.2021
  */
 
-if (!function_exists('mcrypt_encrypt')) {
-    throw new RuntimeException('mcrypt extension is missing. Cannot continue.');
-}
+require('./vendor/autoload.php');
+
+use PhpAes\Aes;
 
 /**
  * Hard-coded "product info" from B593 firmware.
@@ -52,8 +52,15 @@ function EncryptPassword($plaintext, $key_in)
     }
 
     $key = PRODUCT_INFO . $key_in;
+    /*
+     * using deprecated mcrypt-extension
+
     $ciphertext = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key,
         $plaintext, MCRYPT_MODE_ECB);
+    */
+
+    $aes = new Aes($key, 'ECB');
+    $ciphertext = $aes->encrypt($plaintext);
 
     return $key_in . ':' . $ciphertext;
 }
@@ -61,17 +68,22 @@ function EncryptPassword($plaintext, $key_in)
 /**
  * Decrypt a password
  *
- * @param $plaintext
- * @param $key_in
- * @return array 'key' and 'decrypted'
+ * @param $encrypted_data Base64-decoded data as stored in B593
+ * @return string
  */
 function DecryptAES128Password($encrypted_data)
 {
     $key_in = ExtractAES128PasswordFromEncryptedData($encrypted_data);
     $ciphertext_no_key = substr($encrypted_data, KEY_LEN + 1);
     $key = PRODUCT_INFO . $key_in;
-    $plaintext = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key,
+    /*
+     * using deprecated mcrypt-extension
+    $plaintext_orig = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key,
         $ciphertext_no_key, MCRYPT_MODE_ECB);
+    */
+
+    $aes = new Aes($key, 'ECB');
+    $plaintext = $aes->decrypt($ciphertext_no_key);
 
     return $plaintext;
 }
@@ -246,7 +258,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
 </form>
 
 <footer id="bottom_info">
-    For source code, see <a href="https://github.com/HQJaTu/Huawei-CPE-tools">https://github.com/HQJaTu/Huawei-CPE-tools</a>.
+    For source code, see <a
+            href="https://github.com/HQJaTu/Huawei-CPE-tools">https://github.com/HQJaTu/Huawei-CPE-tools</a>.
 </footer>
 </body>
 </html>

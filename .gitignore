@@ -1,0 +1,6 @@
+# IntelliJ / PHPStorm
+.idea/workspace.xml
+
+# Don't store composer files
+B593/vendor/
+

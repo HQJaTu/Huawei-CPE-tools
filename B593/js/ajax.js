@@ -62,6 +62,12 @@ require(["dojo/ready", "dojo/on", "dojo/dom", "dojo/dom-style", "dojo/query", "d
                 DisplaySubmit();
             });
 
+            on(key_field, "keyup", function (event) {
+                encrypted_password_field.value = "";
+
+                DisplaySubmit();
+            });
+
             on(decrypted_password_field, "keyup", function (event) {
                 encrypted_password_field.value = "";
 

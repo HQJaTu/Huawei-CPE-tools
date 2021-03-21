@@ -1,0 +1,5 @@
+{
+  "require": {
+    "phpaes/phpaes": "^3.1"
+  }
+}
